@@ -25,6 +25,15 @@ public class CityController {
 	public  HashMap<String, ArrayList<String>> getCityMap;
 	private HashMap<String, Boolean> isVisited  = null;
 	
+	/**
+	 * Checks if the data file exists and is valid . if yes checks the connectivity between
+	 * origin and destination if connectivity exists returns yes else no.
+	 * 
+	 * if the data file doesn;t exist or not valid return error message
+	 * @param origin
+	 * @param destination
+	 * @return string - yes - if origin and destination are connected else no 
+	 */
 	@GetMapping("/connected")
 	public String  isConnected(@RequestParam(required = true) String origin, @RequestParam(required = true) String destination)
 	{
@@ -41,6 +50,10 @@ public class CityController {
 		
 	}
 
+	/**
+	 *  Recurrsive method to check all possible routes and check if connectivity between
+	 *  source and destination exists
+	 */
 	private boolean printAllPathsUtil(String source, String dest,
 			HashMap<String, Boolean> isVisited) {
 
