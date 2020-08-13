@@ -21,8 +21,8 @@ import org.springframework.core.io.Resource;
  * if the file doesn't exist the system logs error message.
  * 
  * Place for improvement: 
- * Currently reading the file from classpath(resource folder), the code has to be refactored to read file from external folder
- * and populating collection object.
+ * Currently reading the file from classpath(resource folder), the code has to be refactored 
+ * to read file from external folder and populate collection object.
  * so that while changing the city.txt, application doesn't need to be deployed again.
  * 
  */

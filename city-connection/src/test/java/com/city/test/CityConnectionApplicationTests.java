@@ -3,6 +3,8 @@ package com.city.test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -10,6 +12,8 @@ import com.city.test.controller.CityController;
 
 @SpringBootTest
 class CityConnectionApplicationTests {
+
+	final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
 	@Autowired
 	CityController cityController;
@@ -27,7 +31,7 @@ class CityConnectionApplicationTests {
 		if(cityController.getCityMap == null || cityController.getCityMap.size() == 0)
 		{
 			String error = this.cityController.isConnected(origin, destination);
-			System.out.println("Error Message :"+error);
+			LOGGER .debug("Error Message :"+error);
 			assertThat(error).isEqualTo("City.txt file either doesnot exist or file is not valid");			
 		}
 		else
@@ -44,7 +48,7 @@ class CityConnectionApplicationTests {
 		if(cityController.getCityMap == null || cityController.getCityMap.size() == 0)
 		{
 			String error = this.cityController.isConnected(origin, destination);
-			System.out.println("Error Message :"+error);
+			LOGGER.debug("Error Message :"+error);
 			assertThat(error).isEqualTo("City.txt file either doesnot exist or file is not valid");			
 		}
 		else
