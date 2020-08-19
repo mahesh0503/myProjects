@@ -29,7 +29,7 @@ public class CityController {
 	 * Checks if the data file exists and is valid . if yes checks the connectivity between
 	 * origin and destination if connectivity exists returns yes else no.
 	 * 
-	 * if the data file doesn;t exist or not valid return error message
+	 * if the data file doesn't exist or not valid return error message
 	 * @param origin
 	 * @param destination
 	 * @return string - yes - if origin and destination are connected else no 

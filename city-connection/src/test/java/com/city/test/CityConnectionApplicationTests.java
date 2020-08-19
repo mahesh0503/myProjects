@@ -24,6 +24,16 @@ class CityConnectionApplicationTests {
 	}
 	
 	@Test
+	void loadFileTest() {
+		if(cityController.getCityMap == null || cityController.getCityMap.size() == 0)
+		{
+			LOGGER.error("Error Message : City.txt file either doesnot exist or file is not valid");
+			
+		}
+	}
+	
+	
+	@Test
 	void validPathTest()
 	{
 		String origin = "Boston";
@@ -31,7 +41,7 @@ class CityConnectionApplicationTests {
 		if(cityController.getCityMap == null || cityController.getCityMap.size() == 0)
 		{
 			String error = this.cityController.isConnected(origin, destination);
-			LOGGER .debug("Error Message :"+error);
+			LOGGER.error("Error Message :"+error);
 			assertThat(error).isEqualTo("City.txt file either doesnot exist or file is not valid");			
 		}
 		else
@@ -48,7 +58,7 @@ class CityConnectionApplicationTests {
 		if(cityController.getCityMap == null || cityController.getCityMap.size() == 0)
 		{
 			String error = this.cityController.isConnected(origin, destination);
-			LOGGER.debug("Error Message :"+error);
+			LOGGER.error("Error Message :"+error);
 			assertThat(error).isEqualTo("City.txt file either doesnot exist or file is not valid");			
 		}
 		else

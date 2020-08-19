@@ -21,9 +21,16 @@ import org.springframework.core.io.Resource;
  * if the file doesn't exist the system logs error message.
  * 
  * Place for improvement: 
- * Currently reading the file from classpath(resource folder), the code has to be refactored 
- * to read file from external folder and populate collection object.
+ * As per current implementation, the application is reading the file from classpath(resource folder), 
+ * it can be refactored to read file from external folder and populate collection object.
  * so that while changing the city.txt, application doesn't need to be deployed again.
+ * 
+ * As per current implementation if the file contains even single invalid entry the file will be 
+ * discarded completely, but can be changed as per below suggestion
+ *    1) log the invalid entries and ignore them and continue loading other routes 
+ *    2) if the files contains all invalid entries  or if the files doesn't exist then probably log 
+ *    	  the entries /error message and don't let the server to start
+ *    
  * 
  */
 @Configuration
